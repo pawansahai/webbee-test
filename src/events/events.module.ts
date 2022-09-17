@@ -4,11 +4,12 @@ import { EventsController } from './events.controller';
 import { Workshop } from './entities/workshop.entity';
 import { Event } from './entities/event.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Repository } from "typeorm";
 
 export const eventsModuleConfig = {
   imports: [TypeOrmModule.forFeature([Event, Workshop])],
   controllers: [EventsController],
-  providers: [EventsService],
+  providers: [EventsService, Repository],
 };
 
 @Module(eventsModuleConfig)
